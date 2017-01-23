@@ -1,11 +1,12 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require_relative '../contact'
+require_relative 'contact'
 
 class TestContact < Minitest::Test
 
   def setup
     @contact = Contact.create('Grace', 'Hopper', 'grace@hopper.com', 'computer scientist')
+    # @contact = Contact.create('Pawel', 'P', 'pawel@hopper.com', 'wannabe computer scientist')
   end
 
   def teardown

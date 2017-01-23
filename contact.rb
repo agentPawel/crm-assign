@@ -28,31 +28,31 @@ class Contact
   def self.find(id)
     @@contacts.each do |contact|
       return contact if contact.id == id
-  # Or how do we break this?
     end
+    return nil
   end
 
   def update(attribute_to_update, new_value)
     case attribute_to_update
-    when :first_name
+    when "first_name"
       self.first_name = new_value
-    when :last_name
+    when "last_name"
       self.last_name = new_value
-    when :email
+    when "email"
       self.email = new_value
-    when :note
+    when "note"
       self.note = new_value
     end
   end
 
   def self.find_by(attribute_to_search, attribute_value)
     @@contacts.each do |contact|
-    return contact if attribute_to_search == :first_name && contact.first_name == attribute_value
-    return contact if attribute_to_search == :last_name && contact.last_name == attribute_value
-    return contact if attribute_to_search == :email && contact.email == attribute_value
-    return contact if attribute_to_search == :note && contact.note == attribute_value
-    #what is potential escape if nothing is found.
+    return contact if attribute_to_search == "first_name" && contact.first_name == attribute_value
+    return contact if attribute_to_search == "last_name" && contact.last_name == attribute_value
+    return contact if attribute_to_search == "email" && contact.email == attribute_value
+    return contact if attribute_to_search == "note" && contact.note == attribute_value
     end
+    return nil
   end
 
   def self.delete_all
@@ -63,7 +63,7 @@ class Contact
     return "#{first_name} #{last_name}"
   end
 
-  def delete(contact)
+  def delete
     @@contacts.delete(self)
   end
 end
